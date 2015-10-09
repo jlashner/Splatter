@@ -83,5 +83,6 @@ void Player::HandleEvents(Engine *game, SDL_Event event){
                     break;
             }
             break;
+            
     }
 }

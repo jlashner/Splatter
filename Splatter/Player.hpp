@@ -15,8 +15,9 @@
 
 class Player : public Entity {
 public:
-    float x, y, vx, vy;
-    int maxvel = 20;
+    float x, y, vx, vy, rot;
+    int maxvel, height, width;
+    SDL_Rect map;
     void Init(Engine* engine);
     void Update(Engine* engine);
     void Draw(Engine* engine);

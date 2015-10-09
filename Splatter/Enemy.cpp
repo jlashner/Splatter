@@ -19,11 +19,21 @@ void Enemy::Init(Engine *game){
 }
 
 void Enemy::Update(Engine* game){
+    int leadAmount = 3;
+    
+
     x += vx * game->getDelta();
     y += vy * game->getDelta();
     
     switch(ai){
         case Chase:
+            double tx = target->x + (game->getDelta() * leadAmount) * target->vx;
+            double ty = target->y + (game->getDelta() * leadAmount) * target->vy;
+            
+            double theta = atan2f(tx, ty);
+            
+            
+            
             break;
             
     }

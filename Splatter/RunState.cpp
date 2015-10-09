@@ -16,6 +16,7 @@ void RunState::Init(Engine *game){
     
     p = Player();
     p.Init(game);
+    p.map = map;
     
     enemies.push_back(Enemy());
     
@@ -43,7 +44,7 @@ void RunState::Update(Engine *game){
 
 void RunState::Draw(Engine *game){
     
-    SDL_SetRenderDrawColor( game->renderer, 0, 255, 0, 0xFF );
+    SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 0xFF );
     SDL_RenderClear(game->renderer); // Fill render with color
 
     p.Draw(game);

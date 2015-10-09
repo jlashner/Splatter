@@ -21,7 +21,9 @@ public:
     double x, y, vx, vy;
     double maxvel = 80;
     AI_STATE ai;
-
+    
+    Entity* target;
+    
     void Init(Engine* game);
     
     void Update(Engine* game);
@@ -29,6 +31,8 @@ public:
     void Draw(Engine* game);
     
     void HandleEvents(Engine* game, SDL_Event event);
+    
+    void SetTarget(Entity *t){target = t;}
     
     
     
