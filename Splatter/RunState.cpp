@@ -52,6 +52,10 @@ void RunState::Update(Engine *game){
         enemies[i].Update(game);
 
     }
+    
+    for (int i = 0; i < bullets.size(); i++){
+        bullets[i].Update(game);
+    }
 }
 
 void RunState::Draw(Engine *game){
