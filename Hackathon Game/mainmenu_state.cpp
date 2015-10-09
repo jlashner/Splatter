@@ -7,6 +7,7 @@
 #include <SDL2_ttf/SDL_ttf.h>
 #include "Engine.h"
 #include "GameState.h"
+#include "RunState.hpp"
 #include "mainmenu_state.h"
 #include "LTexture.h"
 
@@ -39,8 +40,7 @@ void MainMenuState::HandleEvents(Engine* game, SDL_Event event)
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym) {
                 case SDLK_SPACE:
-//                    ChangeState(game, RunState::Instance() );
-//                    ChangeState(game, BattleState::Instance());
+                    ChangeState(game, RunState::Instance() );
                     break;
                     
                 case SDLK_ESCAPE:
