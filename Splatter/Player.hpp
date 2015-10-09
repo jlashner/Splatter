@@ -17,7 +17,7 @@
 
 class Player : public Entity {
 public:
-    float rot, mousex, mousey;
+    float rot, mousex, mousey, acceleration;
     int maxvel, height, width;
     
     LTexture sprite = LTexture();

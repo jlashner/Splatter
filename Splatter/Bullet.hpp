@@ -10,6 +10,7 @@
 #define Bullet_hpp
 
 #include <stdio.h>
+#include <cstdlib>
 #include "Engine.h"
 #include "Entity.hpp"
 #include "LTexture.h"
