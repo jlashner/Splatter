@@ -36,6 +36,7 @@ protected:
     
 private:
     static RunState m_RunState;
+    SDL_Rect map;
     Player p;
     
 };
