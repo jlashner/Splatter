@@ -14,7 +14,8 @@
 
 class Entity {
 public:
-    int x, y, vx, vy;
+    float  x, y;
+    float vx, vy;
     
     virtual void Init(Engine* game) = 0;
     

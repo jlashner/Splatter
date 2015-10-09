@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Entity.hpp"
+#include "Player.hpp"
 
 enum AI_STATE {
     Chase
@@ -32,9 +33,7 @@ public:
     
     void HandleEvents(Engine* game, SDL_Event event);
     
-    void SetTarget(Entity *t){target = t;}
-    
-    
+    void SetPlayer(Player *p);
     
     Enemy(){};
 };

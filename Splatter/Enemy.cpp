@@ -7,6 +7,7 @@
 //
 
 #include "Enemy.hpp"
+#include "Player.hpp"
 
 void Enemy::HandleEvents(Engine *game, SDL_Event event){}
 
@@ -14,27 +15,34 @@ void Enemy::Init(Engine *game){
     x = 50, y = 50;
     vx = 3;
     vy = 0;
-    maxvel = 50;
+    maxvel = 100;
     ai = Chase;
 }
 
-void Enemy::Update(Engine* game){
-    int leadAmount = 3;
-    
+void Enemy::SetPlayer(Player* p){
+    target = p;
+}
 
-    x += vx * game->getDelta();
-    y += vy * game->getDelta();
+void Enemy::Update(Engine* game){
+    float tx = 0;
+    float ty = 0;
+    float vx0, vy0;
+    
     
     switch(ai){
         case Chase:
-       
-            double tx = target->x + (game->getDelta() * leadAmount) * target->vx;
-            double ty = target->y + (game->getDelta() * leadAmount) * target->vy;
-                
-            double theta = atan2f(tx, ty);
+            tx =  target->x + (game->getDelta() * 30) * target->vx;
+            ty = target->y + (game->getDelta() * 30) * target->vy;
             
+            vx0 = tx - x;
+            vy0 = ty - y;
             
+            vx = vx0/sqrt((vx0 * vx0 + vy0 * vy0)) * maxvel;
+            vy = vy0/sqrt((vx0 * vx0 + vy0 * vy0)) * maxvel;
             
+
+            x += vx * game->getDelta();
+            y += vy * game->getDelta();
             
             
             break;
