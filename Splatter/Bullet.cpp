@@ -51,7 +51,6 @@ void Bullet::Draw(Engine* game)
 
 }
 
-void Bullet::HandleEvents(Engine* game, SDL_Event event)
-{
+void Bullet::Destroy(){
     
 }

@@ -57,8 +57,8 @@ void Player::Update(Engine* game) {
 
 void Player::Draw(Engine *game) {
   SDL_SetRenderDrawColor( game->renderer, 0, 0, 255, 0xFF );
-    
-    sprite.render((int)x,(int)y, game->renderer, NULL, NULL, rot * (180.0 / M_PI));
+    if (!is_dead)
+        sprite.render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, NULL, rot * (180.0 / M_PI));
 }
 
 void Player::HandleEvents(Engine *game, SDL_Event event){
@@ -100,4 +100,8 @@ void Player::HandleEvents(Engine *game, SDL_Event event){
             mousey = event.motion.y;
             break;
     }
+}
+
+void Player::Destroy(){
+    is_dead = true;
 }

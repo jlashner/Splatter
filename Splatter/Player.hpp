@@ -18,7 +18,9 @@
 class Player : public Entity {
 public:
     float rot, mousex, mousey;
+    bool is_dead = false;
     int maxvel, height, width;
+    int rad = 20;
     
     LTexture sprite = LTexture();
     
@@ -29,6 +31,7 @@ public:
     void HandleEvents(Engine* game, SDL_Event event);
     Player(){};
     
+    void Destroy();
 
 };
 
