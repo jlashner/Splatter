@@ -8,18 +8,20 @@
 
 #include "RunState.hpp"
 #include "Player.hpp"
-#include "Vector"
+
 
 RunState RunState::m_RunState;
 
 void RunState::Init(Engine *game){
+    this->game = game;
+    
     map = {0, 0, 1024, 600};
     
     p = Player();
     p.Init(game);
     p.map = map;
     
-    //vector <Bullet> bullets (50);
+    vector <Bullet> bullets (50);
 }
 
 void RunState::Cleanup(){}
@@ -28,6 +30,18 @@ void RunState::Pause(){}
 void RunState::Resume(){}
 
 void RunState::HandleEvents(Engine *game, SDL_Event event){
+    switch (event.type) {
+    case SDL_KEYDOWN:
+        switch (event.key.keysym.sym) {
+            case SDLK_KP_SPACE:
+                Bullet bullet;
+                bullet.Init(game, p.x, p.y, p.rot, map);
+                bullets.push_back(bullet);
+                break;
+        }
+        break;
+    }
+    
     p.HandleEvents(game, event);
 }
 

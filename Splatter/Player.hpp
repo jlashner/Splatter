@@ -28,6 +28,8 @@ public:
     void Draw(Engine* engine);
     void HandleEvents(Engine* game, SDL_Event event);
     Player(){};
+    
+
 };
 
 #endif

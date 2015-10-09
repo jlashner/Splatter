@@ -15,6 +15,7 @@
 #include "LTexture.h"
 
 class Bullet : public Entity {
+public:
     
     int x, y, vx, vy, rot, vi;
     int height, width;
@@ -23,11 +24,13 @@ class Bullet : public Entity {
     
     SDL_Rect map;
     
+    void Init(Engine* game){}
+    
     void Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map);
     void Update(Engine* game);
     void Draw(Engine* game);
     void HandleEvents(Engine* game, SDL_Event event);
-    
+    Bullet(){};
 };
 
 #endif /* Bullet_hpp */

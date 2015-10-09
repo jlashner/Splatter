@@ -77,8 +77,6 @@ void Player::HandleEvents(Engine *game, SDL_Event event){
                 case SDLK_d:
                     vx = maxvel;
                     break;
-                //case SDLK_KP_SPACE:
-                    
             }
             break;
         case SDL_KEYUP:

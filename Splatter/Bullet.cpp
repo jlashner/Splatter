@@ -11,6 +11,8 @@
 
 
 
+
+
 void Bullet::Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map)
 {
     x = X;
