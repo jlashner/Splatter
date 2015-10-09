@@ -10,13 +10,18 @@
 #define Player_hpp
 
 #include <stdio.h>
+#include <math.h>
 #include "Engine.h"
 #include "Entity.hpp"
+#include "LTexture.h"
 
 class Player : public Entity {
 public:
-    float x, y, vx, vy, rot;
+    float x, y, vx, vy, rot, mousex, mousey;
     int maxvel, height, width;
+    
+    LTexture sprite = LTexture();
+    
     SDL_Rect map;
     void Init(Engine* engine);
     void Update(Engine* engine);
