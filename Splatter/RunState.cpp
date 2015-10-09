@@ -41,6 +41,7 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
         switch (event.key.keysym.sym) {
             case SDLK_SPACE:
                 Bullet bullet;
+
                 bullet.Init(game, p.x, p.y, p.rot, map);
                 bullets.push_back(bullet);
                 break;
