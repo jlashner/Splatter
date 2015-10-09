@@ -20,6 +20,7 @@
 		AE9BA1111BC8351D00A91BF6 /* RunState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA1081BC8351D00A91BF6 /* RunState.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA1121BC8351D00A91BF6 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA10A1BC8351D00A91BF6 /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA11D1BC848CB00A91BF6 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */; settings = {ASSET_TAGS = (); }; };
+		BC08342A1BC8662400C4F054 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC0834281BC8662400C4F054 /* Bullet.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		AE9BA1171BC844E300A91BF6 /* Entity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Entity.hpp; path = ../Entity.hpp; sourceTree = "<group>"; };
 		AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		AE9BA11C1BC848CB00A91BF6 /* Enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
+		BC0834281BC8662400C4F054 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
+		BC0834291BC8662400C4F054 /* Bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 		AE9BA1191BC8487300A91BF6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				BC0834281BC8662400C4F054 /* Bullet.cpp */,
+				BC0834291BC8662400C4F054 /* Bullet.hpp */,
 				AE9BA1171BC844E300A91BF6 /* Entity.hpp */,
 				2F63C02D1BC8366800533977 /* Player.cpp */,
 				2F63C02E1BC8366800533977 /* Player.hpp */,
@@ -241,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9BA11D1BC848CB00A91BF6 /* Enemy.cpp in Sources */,
+				BC08342A1BC8662400C4F054 /* Bullet.cpp in Sources */,
 				AE9BA1121BC8351D00A91BF6 /* Timer.cpp in Sources */,
 				2F63C02F1BC8366800533977 /* Player.cpp in Sources */,
 				AE9BA10C1BC8351D00A91BF6 /* Engine.cpp in Sources */,
