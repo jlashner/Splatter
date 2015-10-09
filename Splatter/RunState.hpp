@@ -15,6 +15,7 @@
 #include "GameState.h"
 #include "Player.hpp"
 #include "Enemy.hpp"
+#include "Bullet.hpp"
 
 using namespace std;
 
@@ -40,9 +41,11 @@ protected:
     RunState() { }
     
 private:
+    Engine* game;
     static RunState m_RunState;
     SDL_Rect map;
     Player p;
+    vector<Bullet> bullets;
     vector<Enemy> enemies;
     
 };

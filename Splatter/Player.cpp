@@ -82,16 +82,16 @@ void Player::HandleEvents(Engine *game, SDL_Event event){
         case SDL_KEYUP:
             switch (event.key.keysym.sym) {
                 case SDLK_w:
-                    vy = 0;
+                    if (vy < 0) vy = 0;
                     break;
                 case SDLK_d:
-                    vx = 0;
+                    if (vx > 0) vx = 0;
                     break;
                 case SDLK_a:
-                    vx = 0;
+                    if (vx < 0) vx = 0;
                     break;
                 case SDLK_s:
-                    vy = 0;
+                    if (vy > 0) vy = 0;
                     break;
             }
             break;
