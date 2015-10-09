@@ -15,15 +15,14 @@
 #include "LTexture.h"
 
 class Bullet : public Entity {
-public:
-    
-    int x, y, vx, vy, rot, vi;
+private:
+    float rot, vi;
     int height, width;
     
     LTexture sprite = LTexture();
     
     SDL_Rect map;
-    
+public:
     void Init(Engine* game){}
     
     void Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map);

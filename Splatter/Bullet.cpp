@@ -22,6 +22,7 @@ void Bullet::Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map)
     vx = vi*cos(rot);
     vy = vi*sin(rot);
     map = Map;
+    height = width = 10;
 }
 
 void Bullet::Update(Engine* game)
@@ -29,31 +30,22 @@ void Bullet::Update(Engine* game)
     float newx = x + (vx * game->getDelta());
     float newy = y + (vy * game->getDelta());
     
-    if (newx < map.x) {
-        x = map.x;
+    if (newx < map.x || newx > (map.x + map.w - width)) {
         vx = -vx;
-    } else if (newx > (map.x + map.w - width)) {
-        x = map.x + map.w - width;
-        vx = -vx;
-    } else {
-        x = newx;
     }
     
-    if (newy < map.y) {
-        y = map.y;
+    if (newy < map.y || newy > (map.y + map.h - height)) {
         vy = -vy;
-    } else if (newy > (map.y + map.h - height)) {
-        y = map.y + map.h - height;
-        vy = -vy;
-    } else {
-        y = newy;
     }
+    
+    x += vx * game->getDelta();
+    y += vy * game->getDelta();
 }
 
 void Bullet::Draw(Engine* game)
 {
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 255, 0xFF );
-    SDL_Rect bullet_rect = {x, y,10, 10};
+    SDL_Rect bullet_rect = {(int)x, (int)y, width, height};
     SDL_RenderFillRect(game->renderer, &bullet_rect);
 
 }
