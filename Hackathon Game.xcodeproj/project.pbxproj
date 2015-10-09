@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		AE9BA0D21BC827FD00A91BF6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA0D11BC827FD00A91BF6 /* main.cpp */; };
+		AE9BA0DE1BC82B0000A91BF6 /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA0D81BC82B0000A91BF6 /* Engine.cpp */; settings = {ASSET_TAGS = (); }; };
+		AE9BA0E01BC82B0000A91BF6 /* LTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA0DC1BC82B0000A91BF6 /* LTexture.cpp */; settings = {ASSET_TAGS = (); }; };
+		AE9BA0E51BC82B8A00A91BF6 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BA0E11BC82B8A00A91BF6 /* SDL2_image.framework */; };
+		AE9BA0E61BC82B8A00A91BF6 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BA0E21BC82B8A00A91BF6 /* SDL2_mixer.framework */; };
+		AE9BA0E71BC82B8A00A91BF6 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BA0E31BC82B8A00A91BF6 /* SDL2_ttf.framework */; };
+		AE9BA0E81BC82B8A00A91BF6 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BA0E41BC82B8A00A91BF6 /* SDL2.framework */; };
+		AE9BA0EB1BC82BB400A91BF6 /* mainmenu_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA0E91BC82BB400A91BF6 /* mainmenu_state.cpp */; settings = {ASSET_TAGS = (); }; };
+		AE9BA0EE1BC82BD900A91BF6 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA0EC1BC82BD900A91BF6 /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
+		AE9BA0F21BC82D5B00A91BF6 /* SourceSansPro-Regular.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE9BA0F11BC82D5B00A91BF6 /* SourceSansPro-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,11 +29,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AE9BA0F01BC82D1900A91BF6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				AE9BA0F21BC82D5B00A91BF6 /* SourceSansPro-Regular.otf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AE9BA0CE1BC827FD00A91BF6 /* Hackathon Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Hackathon Game"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9BA0D11BC827FD00A91BF6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AE9BA0D81BC82B0000A91BF6 /* Engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Engine.cpp; sourceTree = "<group>"; };
+		AE9BA0D91BC82B0000A91BF6 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
+		AE9BA0DB1BC82B0000A91BF6 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		AE9BA0DC1BC82B0000A91BF6 /* LTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTexture.cpp; sourceTree = "<group>"; };
+		AE9BA0DD1BC82B0000A91BF6 /* LTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTexture.h; sourceTree = "<group>"; };
+		AE9BA0E11BC82B8A00A91BF6 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
+		AE9BA0E21BC82B8A00A91BF6 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		AE9BA0E31BC82B8A00A91BF6 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
+		AE9BA0E41BC82B8A00A91BF6 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		AE9BA0E91BC82BB400A91BF6 /* mainmenu_state.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mainmenu_state.cpp; sourceTree = "<group>"; };
+		AE9BA0EA1BC82BB400A91BF6 /* mainmenu_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainmenu_state.h; sourceTree = "<group>"; };
+		AE9BA0EC1BC82BD900A91BF6 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		AE9BA0ED1BC82BD900A91BF6 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		AE9BA0F11BC82D5B00A91BF6 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.otf"; path = "assets/fonts/SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +65,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9BA0E51BC82B8A00A91BF6 /* SDL2_image.framework in Frameworks */,
+				AE9BA0E61BC82B8A00A91BF6 /* SDL2_mixer.framework in Frameworks */,
+				AE9BA0E71BC82B8A00A91BF6 /* SDL2_ttf.framework in Frameworks */,
+				AE9BA0E81BC82B8A00A91BF6 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +78,11 @@
 		AE9BA0C51BC827FD00A91BF6 = {
 			isa = PBXGroup;
 			children = (
+				AE9BA0F11BC82D5B00A91BF6 /* SourceSansPro-Regular.otf */,
+				AE9BA0E11BC82B8A00A91BF6 /* SDL2_image.framework */,
+				AE9BA0E21BC82B8A00A91BF6 /* SDL2_mixer.framework */,
+				AE9BA0E31BC82B8A00A91BF6 /* SDL2_ttf.framework */,
+				AE9BA0E41BC82B8A00A91BF6 /* SDL2.framework */,
 				AE9BA0D01BC827FD00A91BF6 /* Hackathon Game */,
 				AE9BA0CF1BC827FD00A91BF6 /* Products */,
 			);
@@ -57,12 +99,37 @@
 		AE9BA0D01BC827FD00A91BF6 /* Hackathon Game */ = {
 			isa = PBXGroup;
 			children = (
+				AE9BA0EC1BC82BD900A91BF6 /* Timer.cpp */,
+				AE9BA0ED1BC82BD900A91BF6 /* Timer.h */,
+				AE9BA0E91BC82BB400A91BF6 /* mainmenu_state.cpp */,
+				AE9BA0EA1BC82BB400A91BF6 /* mainmenu_state.h */,
+				AE9BA0D81BC82B0000A91BF6 /* Engine.cpp */,
+				AE9BA0D91BC82B0000A91BF6 /* Engine.h */,
+				AE9BA0DB1BC82B0000A91BF6 /* GameState.h */,
+				AE9BA0DC1BC82B0000A91BF6 /* LTexture.cpp */,
+				AE9BA0DD1BC82B0000A91BF6 /* LTexture.h */,
 				AE9BA0D11BC827FD00A91BF6 /* main.cpp */,
 			);
 			path = "Hackathon Game";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		AE9BA0F71BC82E2300A91BF6 /* Build with Make */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = AE9BA0F81BC82E2300A91BF6 /* Build configuration list for PBXLegacyTarget "Build with Make" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = "Build with Make";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Build with Make";
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		AE9BA0CD1BC827FD00A91BF6 /* Hackathon Game */ = {
@@ -72,6 +139,8 @@
 				AE9BA0CA1BC827FD00A91BF6 /* Sources */,
 				AE9BA0CB1BC827FD00A91BF6 /* Frameworks */,
 				AE9BA0CC1BC827FD00A91BF6 /* CopyFiles */,
+				AE9BA0EF1BC82C2E00A91BF6 /* ShellScript */,
+				AE9BA0F01BC82D1900A91BF6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -94,6 +163,9 @@
 					AE9BA0CD1BC827FD00A91BF6 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
+					AE9BA0F71BC82E2300A91BF6 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 				};
 			};
 			buildConfigurationList = AE9BA0C91BC827FD00A91BF6 /* Build configuration list for PBXProject "Hackathon Game" */;
@@ -109,9 +181,26 @@
 			projectRoot = "";
 			targets = (
 				AE9BA0CD1BC827FD00A91BF6 /* Hackathon Game */,
+				AE9BA0F71BC82E2300A91BF6 /* Build with Make */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AE9BA0EF1BC82C2E00A91BF6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "dst=${TARGET_BUILD_DIR}\ncp -R \"${SRCROOT}/assets\" \"$dst\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE9BA0CA1BC827FD00A91BF6 /* Sources */ = {
@@ -119,6 +208,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9BA0D21BC827FD00A91BF6 /* main.cpp in Sources */,
+				AE9BA0EB1BC82BB400A91BF6 /* mainmenu_state.cpp in Sources */,
+				AE9BA0E01BC82B0000A91BF6 /* LTexture.cpp in Sources */,
+				AE9BA0EE1BC82BD900A91BF6 /* Timer.cpp in Sources */,
+				AE9BA0DE1BC82B0000A91BF6 /* Engine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +298,10 @@
 		AE9BA0D61BC827FD00A91BF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -212,6 +309,33 @@
 		AE9BA0D71BC827FD00A91BF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AE9BA0F91BC82E2300A91BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AE9BA0FA1BC82E2300A91BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -233,6 +357,14 @@
 			buildConfigurations = (
 				AE9BA0D61BC827FD00A91BF6 /* Debug */,
 				AE9BA0D71BC827FD00A91BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AE9BA0F81BC82E2300A91BF6 /* Build configuration list for PBXLegacyTarget "Build with Make" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE9BA0F91BC82E2300A91BF6 /* Debug */,
+				AE9BA0FA1BC82E2300A91BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
