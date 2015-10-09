@@ -10,13 +10,18 @@
 #define RunState_hpp
 
 #include <stdio.h>
+#include <vector>
 #include "Engine.h"
 #include "GameState.h"
 #include "Player.hpp"
+#include "Enemy.hpp"
+
+using namespace std;
 
 class RunState : public GameState
 {
 public:
+    
     void Init(Engine* game);
     void Cleanup();
     
@@ -38,6 +43,7 @@ private:
     static RunState m_RunState;
     SDL_Rect map;
     Player p;
+    vector<Enemy> enemies;
     
 };
 
