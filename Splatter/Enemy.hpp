@@ -12,9 +12,15 @@
 #include <stdio.h>
 #include "Entity.hpp"
 
+enum AI_STATE {
+    Chase
+};
+
 class Enemy : public Entity {
 public:
-    int x, y, vx, vy;
+    double x, y, vx, vy;
+    double maxvel = 80;
+    AI_STATE ai;
 
     void Init(Engine* game);
     
@@ -23,6 +29,7 @@ public:
     void Draw(Engine* game);
     
     void HandleEvents(Engine* game, SDL_Event event);
+    
     
     
     Enemy(){};

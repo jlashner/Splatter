@@ -15,9 +15,8 @@
 
 class Player : public Entity {
 public:
-    int x, y, vx, vy;
-    
-    
+    float x, y, vx, vy;
+    int maxvel = 20;
     void Init(Engine* engine);
     void Update(Engine* engine);
     void Draw(Engine* engine);
