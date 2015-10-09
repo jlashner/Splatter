@@ -21,9 +21,13 @@ void RunState::Cleanup(){}
 void RunState::Pause(){}
 void RunState::Resume(){}
 
-void RunState::HandleEvents(Engine *game, SDL_Event event){}
+void RunState::HandleEvents(Engine *game, SDL_Event event){
+    p.HandleEvents(game, event);
+}
 
-void RunState::Update(Engine *game){}
+void RunState::Update(Engine *game){
+    p.Update(game);
+}
 
 void RunState::Draw(Engine *game){
     
