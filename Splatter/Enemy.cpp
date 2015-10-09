@@ -27,10 +27,13 @@ void Enemy::Update(Engine* game){
     
     switch(ai){
         case Chase:
+       
             double tx = target->x + (game->getDelta() * leadAmount) * target->vx;
             double ty = target->y + (game->getDelta() * leadAmount) * target->vy;
-            
+                
             double theta = atan2f(tx, ty);
+            
+            
             
             
             

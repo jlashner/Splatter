@@ -22,6 +22,7 @@ void RunState::Init(Engine *game){
     
     for (int i = 0; i < enemies.size(); i++){
         enemies[i].Init(game);
+        enemies[i].SetTarget(&p);
     }
 }
 
@@ -39,6 +40,7 @@ void RunState::Update(Engine *game){
     
     for (int i = 0; i < enemies.size(); i++){
         enemies[i].Update(game);
+
     }
 }
 

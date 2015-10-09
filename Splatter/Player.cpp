@@ -95,6 +95,9 @@ void Player::HandleEvents(Engine *game, SDL_Event event){
                     break;
             }
             break;
-            
+        case SDL_MOUSEMOTION:
+            mousex = event.motion.x;
+            mousey = event.motion.y;
+            break;
     }
 }
