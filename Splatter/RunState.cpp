@@ -41,12 +41,20 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
         switch (event.key.keysym.sym) {
             case SDLK_SPACE:
                 Bullet bullet;
-
-                bullet.Init(game, p.x, p.y, p.rot, map);
+                
+                
+                
+                bullet.Init(game, p.x + 30 * cos(p.rot), p.y + 30 * sin(p.rot), p.rot, map);
                 bullets.push_back(bullet);
                 break;
         }
-        break;
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            Bullet bullet;
+            
+            bullet.Init(game, p.x, p.y, p.rot, map);
+            bullets.push_back(bullet);
+            break;
     }
     
     p.HandleEvents(game, event);
@@ -62,7 +70,9 @@ void RunState::Update(Engine *game){
     
     for (int i = 0; i < bullets.size(); i++){
         bullets[i].Update(game);
+        
     }
+
 }
 
 void RunState::Draw(Engine *game){

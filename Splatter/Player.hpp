@@ -17,8 +17,9 @@
 
 class Player : public Entity {
 public:
-    float rot, mousex, mousey;
+    float rot, mousex, mousey, acceleration;
     int maxvel, height, width;
+    int rad = 20;
     
     LTexture sprite = LTexture();
     
@@ -29,6 +30,7 @@ public:
     void HandleEvents(Engine* game, SDL_Event event);
     Player(){};
     
+    void Destroy();
 
 };
 

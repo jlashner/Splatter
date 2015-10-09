@@ -10,6 +10,7 @@
 #define Bullet_hpp
 
 #include <stdio.h>
+#include <cstdlib>
 #include "Engine.h"
 #include "Entity.hpp"
 #include "LTexture.h"
@@ -28,7 +29,9 @@ public:
     void Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map);
     void Update(Engine* game);
     void Draw(Engine* game);
-    void HandleEvents(Engine* game, SDL_Event event);
+    void HandleEvents(Engine* game, SDL_Event event){}
+    
+    void Destroy();
     Bullet(){};
 };
 
