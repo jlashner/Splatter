@@ -11,10 +11,13 @@
 
 #include <stdio.h>
 #include "Engine.h"
+#include "Entity.hpp"
 
-class Player {
+class Player : public Entity {
 public:
     int x, y, vx, vy;
+    
+    
     void Init(Engine* engine);
     void Update(Engine* engine);
     void Draw(Engine* engine);
