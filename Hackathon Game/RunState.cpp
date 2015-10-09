@@ -23,7 +23,7 @@ void RunState::Update(Engine *game){}
 
 void RunState::Draw(Engine *game){
     
-    SDL_SetRenderDrawColor( game->renderer, 255, 0, 0, 0xFF );
+    SDL_SetRenderDrawColor( game->renderer, 0, 255, 0, 0xFF );
     SDL_RenderClear(game->renderer); // Fill render with color
 
 }
