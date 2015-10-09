@@ -22,7 +22,7 @@ void RunState::Init(Engine *game){
     
     for (int i = 0; i < enemies.size(); i++){
         enemies[i].Init(game);
-        enemies[i].SetTarget(&p);
+        enemies[i].SetPlayer(&p);
     }
 }
 
