@@ -9,15 +9,23 @@
 #include "Player.hpp"
 #include <SDL2/SDL.h>
 
-void Player::Init(Engine* engine) {
+void Player::Init(Engine* game) {
   x = 0;
   y = 0;
   vx = 0;
   vy = 0;
+    mousex = 0;
+    mousey = 0;
     height = 30;
     width = 30;
     rot = 0;
     maxvel = 200;
+    
+    SDL_Rect rect = {(int)x, (int)y, width, height};
+    SDL_Color color = {255,255,255,255};
+    
+    sprite.loadRectangle(rect, game->renderer, color);
+    
 }
 
 void Player::Update(Engine* game) {
@@ -39,14 +47,18 @@ void Player::Update(Engine* game) {
     } else {
         y = newy;
     }
+    
+    float adj = mousex - x;
+    float opp = mousey - y;
+    
+    rot = atan2f(opp, adj);
+    
 }
 
 void Player::Draw(Engine *game) {
-  SDL_Rect rect = {(int) x, (int) y , 30, 30};
-    
   SDL_SetRenderDrawColor( game->renderer, 0, 0, 255, 0xFF );
     
-  SDL_RenderDrawRect(game->renderer, &rect);
+    sprite.render((int)x,(int)y, game->renderer, NULL, NULL, rot * (180.0 / M_PI));
 }
 
 void Player::HandleEvents(Engine *game, SDL_Event event){
@@ -82,6 +94,10 @@ void Player::HandleEvents(Engine *game, SDL_Event event){
                     vy = 0;
                     break;
             }
+            break;
+        case SDL_MOUSEMOTION:
+            mousex = event.motion.x;
+            mousey = event.motion.y;
             break;
     }
 }
