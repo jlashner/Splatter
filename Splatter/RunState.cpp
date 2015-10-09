@@ -12,6 +12,8 @@
 RunState RunState::m_RunState;
 
 void RunState::Init(Engine *game){
+    map = {0, 0, 1024, 600};
+    
     p = Player();
     p.Init(game);
     

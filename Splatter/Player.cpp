@@ -14,12 +14,31 @@ void Player::Init(Engine* engine) {
   y = 0;
   vx = 0;
   vy = 0;
-    maxvel = 50;
+    height = 30;
+    width = 30;
+    rot = 0;
+    maxvel = 200;
 }
 
 void Player::Update(Engine* game) {
-  x += vx * game->getDelta();
-  y += vy * game->getDelta();
+    float newx = x + (vx * game->getDelta());
+    float newy = y + (vy * game->getDelta());
+    
+    if (newx < map.x) {
+        x = map.x;
+    } else if (newx > (map.x + map.w - width)) {
+        x = map.x + map.w - width;
+    } else {
+        x = newx;
+    }
+    
+    if (newy < map.y) {
+        y = map.y;
+    } else if (newy > (map.y + map.h - height)) {
+        y = map.y + map.h - height;
+    } else {
+        y = newy;
+    }
 }
 
 void Player::Draw(Engine *game) {
