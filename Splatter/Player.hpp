@@ -17,7 +17,8 @@
 
 class Player : public Entity {
 public:
-    float rot, mousex, mousey, acceleration;
+    float rot, mousex, mousey;
+    bool is_dead = false;
     int maxvel, height, width;
     int rad = 20;
     
