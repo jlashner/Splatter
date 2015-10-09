@@ -7,10 +7,14 @@
 //
 
 #include "RunState.hpp"
+#include "Player.hpp"
 
 RunState RunState::m_RunState;
 
-void RunState::Init(Engine *game){}
+void RunState::Init(Engine *game){
+    p = Player();
+    p.Init(game);
+}
 
 void RunState::Cleanup(){}
 
@@ -26,6 +30,7 @@ void RunState::Draw(Engine *game){
     SDL_SetRenderDrawColor( game->renderer, 0, 255, 0, 0xFF );
     SDL_RenderClear(game->renderer); // Fill render with color
 
+    p.Draw(game);
 }
 
 

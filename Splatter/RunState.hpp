@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Engine.h"
 #include "GameState.h"
+#include "Player.hpp"
 
 class RunState : public GameState
 {
@@ -35,6 +36,7 @@ protected:
     
 private:
     static RunState m_RunState;
+    Player p;
     
 };
 
