@@ -11,8 +11,9 @@
 
 #include <stdio.h>
 #include "Engine.h"
+#include "Entity.hpp"
 
-class Player {
+class Player : public Entity {
 public:
     float x, y, vx, vy, rot;
     int maxvel, height, width;

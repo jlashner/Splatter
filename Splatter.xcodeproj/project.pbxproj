@@ -19,6 +19,7 @@
 		AE9BA1101BC8351D00A91BF6 /* mainmenu_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA1061BC8351D00A91BF6 /* mainmenu_state.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA1111BC8351D00A91BF6 /* RunState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA1081BC8351D00A91BF6 /* RunState.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA1121BC8351D00A91BF6 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA10A1BC8351D00A91BF6 /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
+		AE9BA11D1BC848CB00A91BF6 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +65,9 @@
 		AE9BA1091BC8351D00A91BF6 /* RunState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RunState.hpp; sourceTree = "<group>"; };
 		AE9BA10A1BC8351D00A91BF6 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
 		AE9BA10B1BC8351D00A91BF6 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		AE9BA1171BC844E300A91BF6 /* Entity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Entity.hpp; path = ../Entity.hpp; sourceTree = "<group>"; };
+		AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		AE9BA11C1BC848CB00A91BF6 /* Enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,22 +109,41 @@
 		AE9BA0FE1BC8351D00A91BF6 /* Splatter */ = {
 			isa = PBXGroup;
 			children = (
+				AE9BA1051BC8351D00A91BF6 /* main.cpp */,
 				AE9BA0FF1BC8351D00A91BF6 /* Engine.cpp */,
 				AE9BA1001BC8351D00A91BF6 /* Engine.h */,
-				AE9BA1021BC8351D00A91BF6 /* GameState.h */,
+				AE9BA10B1BC8351D00A91BF6 /* Timer.h */,
 				AE9BA1031BC8351D00A91BF6 /* LTexture.cpp */,
 				AE9BA1041BC8351D00A91BF6 /* LTexture.h */,
-				AE9BA1051BC8351D00A91BF6 /* main.cpp */,
+				AE9BA10A1BC8351D00A91BF6 /* Timer.cpp */,
+				AE9BA1191BC8487300A91BF6 /* Entities */,
+				AE9BA11A1BC8488600A91BF6 /* States */,
+			);
+			path = Splatter;
+			sourceTree = "<group>";
+		};
+		AE9BA1191BC8487300A91BF6 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AE9BA1171BC844E300A91BF6 /* Entity.hpp */,
+				2F63C02D1BC8366800533977 /* Player.cpp */,
+				2F63C02E1BC8366800533977 /* Player.hpp */,
+				AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */,
+				AE9BA11C1BC848CB00A91BF6 /* Enemy.hpp */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		AE9BA11A1BC8488600A91BF6 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				AE9BA1021BC8351D00A91BF6 /* GameState.h */,
 				AE9BA1061BC8351D00A91BF6 /* mainmenu_state.cpp */,
 				AE9BA1071BC8351D00A91BF6 /* mainmenu_state.h */,
 				AE9BA1081BC8351D00A91BF6 /* RunState.cpp */,
-				2F63C02D1BC8366800533977 /* Player.cpp */,
-				2F63C02E1BC8366800533977 /* Player.hpp */,
 				AE9BA1091BC8351D00A91BF6 /* RunState.hpp */,
-				AE9BA10A1BC8351D00A91BF6 /* Timer.cpp */,
-				AE9BA10B1BC8351D00A91BF6 /* Timer.h */,
 			);
-			path = Splatter;
+			name = States;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9BA11D1BC848CB00A91BF6 /* Enemy.cpp in Sources */,
 				AE9BA1121BC8351D00A91BF6 /* Timer.cpp in Sources */,
 				2F63C02F1BC8366800533977 /* Player.cpp in Sources */,
 				AE9BA10C1BC8351D00A91BF6 /* Engine.cpp in Sources */,
