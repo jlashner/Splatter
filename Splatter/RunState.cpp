@@ -39,8 +39,9 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
     switch (event.type) {
     case SDL_KEYDOWN:
         switch (event.key.keysym.sym) {
-            case SDLK_KP_SPACE:
+            case SDLK_SPACE:
                 Bullet bullet;
+
                 bullet.Init(game, p.x, p.y, p.rot, map);
                 bullets.push_back(bullet);
                 break;
@@ -58,6 +59,12 @@ void RunState::Update(Engine *game){
         enemies[i].Update(game);
 
     }
+    
+    for (int i = 0; i < bullets.size(); i++){
+        bullets[i].Update(game);
+        
+    }
+
 }
 
 void RunState::Draw(Engine *game){
@@ -69,6 +76,10 @@ void RunState::Draw(Engine *game){
     
     for (int i = 0; i < enemies.size(); i++){
         enemies[i].Draw(game);
+    }
+    
+    for (int i = 0; i < bullets.size(); i++){
+        bullets[i].Draw(game);
     }
 }
 

@@ -13,6 +13,7 @@
 
 
 
+
 void Bullet::Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map)
 {
     x = X;
@@ -22,6 +23,8 @@ void Bullet::Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map)
     vx = vi*cos(rot);
     vy = vi*sin(rot);
     map = Map;
+    
+    printf("Bullet initiated\n");
 }
 
 void Bullet::Update(Engine* game)
