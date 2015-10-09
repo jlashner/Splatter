@@ -12,18 +12,20 @@
 #include <stdio.h>
 #include "Engine.h"
 #include "Entity.hpp"
+#include "LTexture.h"
 
 class Bullet : public Entity {
     
-    int x, y, vx, vy, rot;
+    int x, y, vx, vy, rot, vi;
     int height, width;
     
-    void Init(Engine* game, float X, float Y, float Rot);
+    LTexture sprite = LTexture();
     
+    SDL_Rect map;
+    
+    void Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map);
     void Update(Engine* game);
-    
     void Draw(Engine* game);
-    
     void HandleEvents(Engine* game, SDL_Event event);
     
 };
