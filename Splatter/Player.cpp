@@ -20,7 +20,6 @@ void Player::Init(Engine* game) {
     width = 30;
     rot = 0;
     maxvel = 200;
-    acceleration = 1.2;
     
     SDL_Rect rect = {(int)x, (int)y, width, height};
     SDL_Color color = {255,255,255,255};
