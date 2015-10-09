@@ -8,6 +8,7 @@
 
 #include "RunState.hpp"
 #include "Player.hpp"
+#include "Vector"
 
 RunState RunState::m_RunState;
 
@@ -17,6 +18,8 @@ void RunState::Init(Engine *game){
     p = Player();
     p.Init(game);
     p.map = map;
+    
+    //vector <Bullet> bullets (50);
 }
 
 void RunState::Cleanup(){}
