@@ -21,6 +21,7 @@ void RunState::Init(Engine *game){
     p.Init(game);
     p.map = map;
     
+    vector <Bullet> bullets (50);
     enemies.push_back(Enemy());
     
     for (int i = 0; i < enemies.size(); i++){

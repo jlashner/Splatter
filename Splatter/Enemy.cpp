@@ -28,10 +28,6 @@ void Enemy::Update(Engine* game){
     float ty = 0;
     float vx0, vy0;
     
-    float vxnorm, vynorm;
-//
-//    x += vx * game->getDelta();
-//    y += vy * game->getDelta();
     
     switch(ai){
         case Chase:
@@ -44,12 +40,7 @@ void Enemy::Update(Engine* game){
             vx = vx0/sqrt((vx0 * vx0 + vy0 * vy0)) * maxvel;
             vy = vy0/sqrt((vx0 * vx0 + vy0 * vy0)) * maxvel;
             
-            printf("%f\n", vx* vx + vy * vy);
 
-//            printf("%f, %f, %f\n", tx ,ty, theta);
-//            vx = maxvel * cos(theta);
-//            vy = maxvel * sin(theta);
-            
             x += vx * game->getDelta();
             y += vy * game->getDelta();
             
