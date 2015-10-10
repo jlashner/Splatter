@@ -54,7 +54,7 @@ void Enemy::Update(Engine* game){
 void Enemy::Draw(Engine *game){
     SDL_Rect rect = {(int)x,(int)y,20,20};
     
-    SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &rect);
 }
 
