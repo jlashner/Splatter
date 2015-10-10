@@ -52,7 +52,7 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
         case SDL_MOUSEBUTTONDOWN:
             Bullet bullet;
             
-            bullet.Init(game, p.x, p.y, p.rot, map);
+            bullet.Init(game, p.x + (p.rad + 20) * cos(p.rot), p.y + (p.rad + 20) * sin(p.rot), p.rot, map);
             bullets.push_back(bullet);
             break;
     }
@@ -70,6 +70,10 @@ void RunState::Update(Engine *game){
     
     for (int i = 0; i < bullets.size(); i++){
         bullets[i].Update(game);
+        
+        if (pow((bullets[i].x - p.x), 2) +pow((bullets[i].y - p.y), 2) < p.rad * p.rad){
+            p.Destroy();
+        }
         
     }
 
