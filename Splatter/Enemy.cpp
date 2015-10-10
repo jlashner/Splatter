@@ -25,11 +25,16 @@ void Enemy::Init(Engine *game, double x, double y, Player* player){
     
     show_hitbox = true;
     
+    is_dead = false;
+    
     rot = 0;
     maxvel = 100;
     ai = Chase;
     
-    sprite.loadFromFile("assets/Enemy.png", game->renderer);
+    bool loaded = sprite.loadFromFile("assets/Enemy.png", game->renderer);
+    
+    if (!loaded)
+        printf("HERE");
 
 }
 

@@ -30,11 +30,14 @@ void RunState::Init(Engine *game){
     vector <Bullet> bullets (50);
 
     enemies.push_back(Enemy());
+    enemies[0].Init(game, 800, 100, &p);
+    enemies.push_back(Enemy());
+    enemies[1].Init(game, 800, map.y + map.h - 40, &p);
+    enemies.push_back(Enemy());
+    enemies[2].Init(game, map.x + 30,  map.y + map.h - 40, &p);
+
     
-    for (int i = 0; i < enemies.size(); i ++){
-        enemies[i].Init(game, 800, 100, &p);
-    }
-    
+  
     
 
 }
