@@ -20,6 +20,7 @@
 		AE9BA1111BC8351D00A91BF6 /* RunState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA1081BC8351D00A91BF6 /* RunState.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA1121BC8351D00A91BF6 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA10A1BC8351D00A91BF6 /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA11D1BC848CB00A91BF6 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */; settings = {ASSET_TAGS = (); }; };
+		AE9BA1201BC9509000A91BF6 /* GameOverState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA11E1BC9509000A91BF6 /* GameOverState.cpp */; settings = {ASSET_TAGS = (); }; };
 		BC08342A1BC8662400C4F054 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC0834281BC8662400C4F054 /* Bullet.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		AE9BA1171BC844E300A91BF6 /* Entity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Entity.hpp; path = ../Entity.hpp; sourceTree = "<group>"; };
 		AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		AE9BA11C1BC848CB00A91BF6 /* Enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
+		AE9BA11E1BC9509000A91BF6 /* GameOverState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverState.cpp; sourceTree = "<group>"; };
+		AE9BA11F1BC9509000A91BF6 /* GameOverState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameOverState.hpp; sourceTree = "<group>"; };
 		BC0834281BC8662400C4F054 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		BC0834291BC8662400C4F054 /* Bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +150,8 @@
 				AE9BA1071BC8351D00A91BF6 /* mainmenu_state.h */,
 				AE9BA1081BC8351D00A91BF6 /* RunState.cpp */,
 				AE9BA1091BC8351D00A91BF6 /* RunState.hpp */,
+				AE9BA11E1BC9509000A91BF6 /* GameOverState.cpp */,
+				AE9BA11F1BC9509000A91BF6 /* GameOverState.hpp */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				AE9BA1101BC8351D00A91BF6 /* mainmenu_state.cpp in Sources */,
 				AE9BA10F1BC8351D00A91BF6 /* main.cpp in Sources */,
 				AE9BA10E1BC8351D00A91BF6 /* LTexture.cpp in Sources */,
+				AE9BA1201BC9509000A91BF6 /* GameOverState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

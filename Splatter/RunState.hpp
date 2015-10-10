@@ -23,7 +23,10 @@ class RunState : public GameState
 {
 public:
     
+    RunState() { }
+    
     void Init(Engine* game);
+    void Reset();
     void Cleanup();
     
     void Pause();
@@ -37,8 +40,8 @@ public:
         return &m_RunState;
     }
     
-protected:
-    RunState() { }
+
+
     
 private:
     Engine* game;

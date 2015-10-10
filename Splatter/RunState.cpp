@@ -8,6 +8,7 @@
 
 #include "RunState.hpp"
 #include "Player.hpp"
+#include "GameOverState.hpp"
 
 
 RunState RunState::m_RunState;
@@ -28,6 +29,11 @@ void RunState::Init(Engine *game){
         enemies[i].Init(game);
         enemies[i].SetPlayer(&p);
     }
+}
+
+void RunState::Reset(){
+    enemies.clear();
+    bullets.clear();
 }
 
 void RunState::Cleanup(){}
@@ -51,7 +57,7 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
             break;
         case SDL_MOUSEBUTTONDOWN:
             Bullet bullet;
-            
+        
             bullet.Init(game, p.x + (p.rad + 20) * cos(p.rot), p.y + (p.rad + 20) * sin(p.rot), p.rot, map);
             bullets.push_back(bullet);
             break;
@@ -73,6 +79,13 @@ void RunState::Update(Engine *game){
         
         if (pow((bullets[i].x - p.x), 2) +pow((bullets[i].y - p.y), 2) < p.rad * p.rad){
             p.Destroy();
+            
+            bullets.erase(bullets.begin() + i);
+            i--;
+            
+            GameOverState *gos = GameOverState::Instance();
+            gos->setRunState(this);
+            ChangeState(game, GameOverState::Instance() );
         }
         
     }
