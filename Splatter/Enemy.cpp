@@ -66,6 +66,9 @@ void Enemy::Update(Engine* game){
 
 void Enemy::Destroy(){
     is_dead = true;
+    
+    sprite.free();
+    
 }
 
 void Enemy::Draw(Engine *game){
