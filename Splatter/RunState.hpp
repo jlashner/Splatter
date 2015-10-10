@@ -16,6 +16,7 @@
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "Bullet.hpp"
+#include "EnemyFactory.hpp"
 
 using namespace std;
 
@@ -49,8 +50,7 @@ private:
     SDL_Rect map;
     Player p;
     vector<Bullet> bullets;
-    vector<Enemy> enemies;
-    
+    EnemyFactory enemyFactory;
 };
 
 

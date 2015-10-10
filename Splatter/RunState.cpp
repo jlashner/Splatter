@@ -28,19 +28,13 @@ void RunState::Init(Engine *game){
     p.map = map;
     
     vector <Bullet> bullets (50);
-
-    enemies.push_back(Enemy());
     
-    for (int i = 0; i < enemies.size(); i ++){
-        enemies[i].Init(game, 800, 100, &p);
-    }
+    enemyFactory.addEnemy(game, 800, 100, &p);
     
-    
-
 }
 
 void RunState::Reset(){
-    enemies.clear();
+    enemyFactory.despawnAll();
     bullets.clear();
 }
 
@@ -75,27 +69,15 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
 void RunState::Update(Engine *game){
     p.Update(game);
     
-    for (int i = 0; i < enemies.size(); i++){
-        enemies[i].Update(game);
-
-    }
+    enemyFactory.updateEnemies(game);
     
     for (int i = 0; i < bullets.size(); i++){
         bullets[i].Update(game);
         
-
-        
-        for (int j = 0; j < enemies.size(); j++){
-
-            if (bullets[i].HasCollided(&enemies[j])){
-                enemies[j].Destroy();
-                enemies.erase(enemies.begin() + j);
-                j--;
-                
+            if (enemyFactory.bulletDidHidEnemy(&bullets[i])) {
                 bullets.erase(bullets.begin() + i);
                 i--;
             }
-        }
 //
         if (p.HasCollided(&bullets[i])){
             p.Destroy();
@@ -122,9 +104,7 @@ void RunState::Draw(Engine *game){
 
     p.Draw(game);
     
-    for (int i = 0; i < enemies.size(); i++){
-        enemies[i].Draw(game);
-    }
+    enemyFactory.drawEnemies(game);
     
     for (int i = 0; i < bullets.size(); i++) {
         bullets[i].Draw(game);
