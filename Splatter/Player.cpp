@@ -16,16 +16,22 @@ void Player::Init(Engine* game) {
   vy = 0;
     mousex = 0;
     mousey = 0;
-    height = 30;
-    width = 30;
+    height = 40;
+    width = 40;
+    
+    hit_rad = 30;
+    
     rot = 0;
     maxvel = 200;
     
-    SDL_Rect rect = {(int)x, (int)y, width, height};
-    SDL_Color color = {255,255,255,255};
+//    SDL_Rect rect = {(int)x, (int)y, width, height};
+//    SDL_Color color = {255,255,255,255};
     
-    sprite.loadRectangle(rect, game->renderer, color);
     
+    sprite.loadFromFile("assets/Player.png", game->renderer);
+//    sprite.loadRectangle(rect, game->renderer, color);
+    
+
 }
 
 void Player::Update(Engine* game) {
@@ -34,16 +40,16 @@ void Player::Update(Engine* game) {
     
     if (newx < map.x) {
         x = map.x;
-    } else if (newx > (map.x + map.w - width)) {
-        x = map.x + map.w - width;
+    } else if (newx > (map.x + map.w)) {
+        x = map.x + map.w;
     } else {
         x = newx;
     }
     
     if (newy < map.y) {
         y = map.y;
-    } else if (newy > (map.y + map.h - height)) {
-        y = map.y + map.h - height;
+    } else if (newy > (map.y + map.h)) {
+        y = map.y + map.h;
     } else {
         y = newy;
     }
@@ -56,9 +62,13 @@ void Player::Update(Engine* game) {
 }
 
 void Player::Draw(Engine *game) {
-  SDL_SetRenderDrawColor( game->renderer, 0, 0, 255, 0xFF );
+    
+    SDL_Rect sprite_rect = {(int)(x - width/2),(int)(y - height/2),width,height};
+        
+    
     if (!is_dead)
-        sprite.render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, NULL, rot * (180.0 / M_PI));
+        sprite.render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, &sprite_rect, rot * (180.0 / M_PI));
+    
 }
 
 void Player::HandleEvents(Engine *game, SDL_Event event){

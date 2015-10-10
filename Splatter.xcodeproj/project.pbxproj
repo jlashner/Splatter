@@ -21,6 +21,7 @@
 		AE9BA1121BC8351D00A91BF6 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA10A1BC8351D00A91BF6 /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA11D1BC848CB00A91BF6 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA11B1BC848CB00A91BF6 /* Enemy.cpp */; settings = {ASSET_TAGS = (); }; };
 		AE9BA1201BC9509000A91BF6 /* GameOverState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA11E1BC9509000A91BF6 /* GameOverState.cpp */; settings = {ASSET_TAGS = (); }; };
+		AE9BA1231BC9841300A91BF6 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9BA1211BC9841300A91BF6 /* Animation.cpp */; settings = {ASSET_TAGS = (); }; };
 		BC08342A1BC8662400C4F054 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC0834281BC8662400C4F054 /* Bullet.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		AE9BA11C1BC848CB00A91BF6 /* Enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
 		AE9BA11E1BC9509000A91BF6 /* GameOverState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverState.cpp; sourceTree = "<group>"; };
 		AE9BA11F1BC9509000A91BF6 /* GameOverState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameOverState.hpp; sourceTree = "<group>"; };
+		AE9BA1211BC9841300A91BF6 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
+		AE9BA1221BC9841300A91BF6 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		BC0834281BC8662400C4F054 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		BC0834291BC8662400C4F054 /* Bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +118,8 @@
 		AE9BA0FE1BC8351D00A91BF6 /* Splatter */ = {
 			isa = PBXGroup;
 			children = (
+				AE9BA1211BC9841300A91BF6 /* Animation.cpp */,
+				AE9BA1221BC9841300A91BF6 /* Animation.h */,
 				AE9BA1051BC8351D00A91BF6 /* main.cpp */,
 				AE9BA0FF1BC8351D00A91BF6 /* Engine.cpp */,
 				AE9BA1001BC8351D00A91BF6 /* Engine.h */,
@@ -260,6 +265,7 @@
 				AE9BA10F1BC8351D00A91BF6 /* main.cpp in Sources */,
 				AE9BA10E1BC8351D00A91BF6 /* LTexture.cpp in Sources */,
 				AE9BA1201BC9509000A91BF6 /* GameOverState.cpp in Sources */,
+				AE9BA1231BC9841300A91BF6 /* Animation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

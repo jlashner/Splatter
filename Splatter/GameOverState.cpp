@@ -97,8 +97,7 @@ void GameOverState::HandleEvents(Engine* game, SDL_Event event){
     }
     
     cursor_pos = new_curs % 2;
-    printf("%d, %d\n", new_curs, cursor_pos);
-    
+     
 }
 
 void GameOverState::Update(Engine* game){}

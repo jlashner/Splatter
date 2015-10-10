@@ -43,6 +43,8 @@ bool LTexture::loadFromFile(std::string path, SDL_Renderer* renderer){
         printf("Unable to load image %s, SDL error: %s\n", path.c_str(), IMG_GetError());
     else{
         
+//        SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 255, 255, 255 ) );
+        
         newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
         
         if( newTexture == NULL )
@@ -75,6 +77,9 @@ void LTexture::loadRectangle(SDL_Rect rect, SDL_Renderer *renderer, SDL_Color co
     
     
 }
+
+
+
 
 
 bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColor, SDL_Renderer* renderer)

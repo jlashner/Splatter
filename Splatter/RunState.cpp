@@ -16,19 +16,27 @@ RunState RunState::m_RunState;
 void RunState::Init(Engine *game){
     this->game = game;
     
-    map = {0, 0, 1024, 600};
+    map.w = game->getWidth()*.8;
+    map.h = game->getHeight()* .8;
+    map.x = game->getWidth()/2 - map.w/2;
+    map.y = game->getHeight()/2 - map.h/2;
+    
     
     p = Player();
     p.Init(game);
+    
     p.map = map;
     
     vector <Bullet> bullets (50);
+
     enemies.push_back(Enemy());
     
-    for (int i = 0; i < enemies.size(); i++){
-        enemies[i].Init(game);
-        enemies[i].SetPlayer(&p);
+    for (int i = 0; i < enemies.size(); i ++){
+        enemies[i].Init(game, 200, 200, &p);
     }
+    
+    
+
 }
 
 void RunState::Reset(){
@@ -77,7 +85,21 @@ void RunState::Update(Engine *game){
     for (int i = 0; i < bullets.size(); i++){
         bullets[i].Update(game);
         
-        if (pow((bullets[i].x - p.x), 2) +pow((bullets[i].y - p.y), 2) < p.rad * p.rad){
+
+        
+        for (int j = 0; j < enemies.size(); j++){
+
+            if (bullets[i].HasCollided(&enemies[j])){
+                enemies[j].Destroy();
+                enemies.erase(enemies.begin() + j);
+                j--;
+                
+                bullets.erase(bullets.begin() + i);
+                i--;
+            }
+        }
+//
+        if (p.HasCollided(&bullets[i])){
             p.Destroy();
             
             bullets.erase(bullets.begin() + i);
@@ -96,6 +118,9 @@ void RunState::Draw(Engine *game){
     
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 0xFF );
     SDL_RenderClear(game->renderer); // Fill render with color
+    
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+    SDL_RenderDrawRect(game->renderer, &map);
 
     p.Draw(game);
     
