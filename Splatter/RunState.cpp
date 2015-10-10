@@ -89,7 +89,7 @@ void RunState::Update(Engine *game){
 
             if (bullets[i].HasCollided(&enemies[j])){
                 enemies[j].Destroy();
-                enemies.erase(enemies.begin() + j);
+                enemies.erase(enemies.begin() + j - 1);
                 j--;
                 
                 bullets.erase(bullets.begin() + i);

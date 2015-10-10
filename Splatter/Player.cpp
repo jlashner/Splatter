@@ -10,17 +10,20 @@
 #include <SDL2/SDL.h>
 
 void Player::Init(Engine* game) {
-  x = 0;
-  y = 0;
-  vx = 0;
-  vy = 0;
+    x = 0;
+    y = 0;
+    vx = 0;
+    vy = 0;
     mousex = 0;
     mousey = 0;
     height = 40;
     width = 40;
+
+
+    show_hitbox = true;
     
-    hit_rad = 30;
-    
+    hit_rad = 10;
+
     rot = 0;
     maxvel = 200;
     
@@ -69,6 +72,11 @@ void Player::Draw(Engine *game) {
     if (!is_dead)
         sprite.render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, &sprite_rect, rot * (180.0 / M_PI));
     
+    
+    
+    if (show_hitbox){
+        DrawHitbox(game);
+    }
 }
 
 void Player::HandleEvents(Engine *game, SDL_Event event){

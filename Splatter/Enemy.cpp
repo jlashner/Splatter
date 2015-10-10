@@ -21,7 +21,9 @@ void Enemy::Init(Engine *game, double x, double y, Player* player){
     vy = 0;
     width = 40, height = 40;
     
-    hit_rad = 20;
+    hit_rad = 10;
+    
+    show_hitbox = true;
     
     rot = 0;
     maxvel = 100;
@@ -71,6 +73,8 @@ void Enemy::Draw(Engine *game){
     if (!is_dead)
         sprite.render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, &sprite_rect, rot* 180 /  M_PI);
 
+    if (show_hitbox)
+        DrawHitbox(game);
 
     
     
