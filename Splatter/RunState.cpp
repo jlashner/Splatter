@@ -8,6 +8,7 @@
 
 #include "RunState.hpp"
 #include "Player.hpp"
+#include "GameOverState.hpp"
 
 
 RunState RunState::m_RunState;
@@ -15,19 +16,32 @@ RunState RunState::m_RunState;
 void RunState::Init(Engine *game){
     this->game = game;
     
-    map = {0, 0, 1024, 600};
+    map.w = game->getWidth()*.8;
+    map.h = game->getHeight()* .8;
+    map.x = game->getWidth()/2 - map.w/2;
+    map.y = game->getHeight()/2 - map.h/2;
+    
     
     p = Player();
     p.Init(game);
+    
     p.map = map;
     
     vector <Bullet> bullets (50);
+
     enemies.push_back(Enemy());
     
-    for (int i = 0; i < enemies.size(); i++){
-        enemies[i].Init(game);
-        enemies[i].SetPlayer(&p);
+    for (int i = 0; i < enemies.size(); i ++){
+        enemies[i].Init(game, 800, 100, &p);
     }
+    
+    
+
+}
+
+void RunState::Reset(){
+    enemies.clear();
+    bullets.clear();
 }
 
 void RunState::Cleanup(){}
@@ -51,8 +65,8 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
             break;
         case SDL_MOUSEBUTTONDOWN:
             Bullet bullet;
-            
-            bullet.Init(game, p.x, p.y, p.rot, map);
+        
+            bullet.Init(game, p.x + (p.rad + 20) * cos(p.rot), p.y + (p.rad + 20) * sin(p.rot), p.rot, map);
             bullets.push_back(bullet);
             break;
     }
@@ -71,6 +85,31 @@ void RunState::Update(Engine *game){
     for (int i = 0; i < bullets.size(); i++){
         bullets[i].Update(game);
         
+
+        
+        for (int j = 0; j < enemies.size(); j++){
+
+            if (bullets[i].HasCollided(&enemies[j])){
+                enemies[j].Destroy();
+                enemies.erase(enemies.begin() + j);
+                j--;
+                
+                bullets.erase(bullets.begin() + i);
+                i--;
+            }
+        }
+//
+        if (p.HasCollided(&bullets[i])){
+            p.Destroy();
+            
+            bullets.erase(bullets.begin() + i);
+            i--;
+            
+            GameOverState *gos = GameOverState::Instance();
+            gos->setRunState(this);
+            ChangeState(game, GameOverState::Instance() );
+        }
+        
     }
 
 }
@@ -79,6 +118,9 @@ void RunState::Draw(Engine *game){
     
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 0xFF );
     SDL_RenderClear(game->renderer); // Fill render with color
+    
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+    SDL_RenderDrawRect(game->renderer, &map);
 
     p.Draw(game);
     

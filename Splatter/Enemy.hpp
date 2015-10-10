@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Entity.hpp"
 #include "Player.hpp"
+#include "LTexture.h"
 
 enum AI_STATE {
     Chase
@@ -19,13 +20,23 @@ enum AI_STATE {
 
 class Enemy : public Entity {
 public:
-    double x, y, vx, vy;
+    double vx, vy;
+    int width, height;
     double maxvel = 80;
+    
+    
+    
+    double rot;
+    
     AI_STATE ai;
+    
+    bool is_dead = false;
     
     Entity* target;
     
-    void Init(Engine* game);
+    void Init(Engine* game){}
+    void Init(Engine* game, double x, double y, Player* p);
+    
     
     void Update(Engine* game);
     
@@ -33,9 +44,12 @@ public:
     
     void HandleEvents(Engine* game, SDL_Event event);
     
-    void SetPlayer(Player *p);
+    void Destroy();
     
     Enemy(){};
+    
+private:
+    LTexture sprite = LTexture();
 };
 
 

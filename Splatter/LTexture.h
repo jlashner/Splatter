@@ -26,6 +26,7 @@ public:
     
     void loadRectangle(SDL_Rect rect, SDL_Renderer* renderer, SDL_Color color = {0,0,0});
     
+    
     //Deallocates texture
     void free();
     

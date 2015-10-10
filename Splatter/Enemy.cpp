@@ -11,17 +11,27 @@
 
 void Enemy::HandleEvents(Engine *game, SDL_Event event){}
 
-void Enemy::Init(Engine *game){
-    x = 50, y = 50;
+void Enemy::Init(Engine *game, double x, double y, Player* player){
+    this->x = x;
+    this->y = y;
+    
+    target = player;
+    
     vx = 3;
     vy = 0;
+    width = 40, height = 40;
+    
+    hit_rad = 20;
+    
+    rot = 0;
     maxvel = 100;
     ai = Chase;
+    
+    sprite.loadFromFile("assets/Enemy.png", game->renderer);
+
 }
 
-void Enemy::SetPlayer(Player* p){
-    target = p;
-}
+
 
 void Enemy::Update(Engine* game){
     float tx = 0;
@@ -40,6 +50,7 @@ void Enemy::Update(Engine* game){
             vx = vx0/sqrt((vx0 * vx0 + vy0 * vy0)) * maxvel;
             vy = vy0/sqrt((vx0 * vx0 + vy0 * vy0)) * maxvel;
             
+            rot = atan2f(vy, vx);
 
             x += vx * game->getDelta();
             y += vy * game->getDelta();
@@ -51,10 +62,17 @@ void Enemy::Update(Engine* game){
 
 }
 
+void Enemy::Destroy(){
+    is_dead = true;
+}
+
 void Enemy::Draw(Engine *game){
-    SDL_Rect rect = {(int)x,(int)y,20,20};
+    SDL_Rect sprite_rect = {(int)x - width/2,(int)y - height/2,width,height};
+    if (!is_dead)
+        sprite.render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, &sprite_rect, rot* 180 /  M_PI);
+
+
     
-    SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-    SDL_RenderFillRect(game->renderer, &rect);
+    
 }
 

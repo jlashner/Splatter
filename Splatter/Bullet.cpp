@@ -24,6 +24,8 @@ void Bullet::Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map)
     vy = vi*sin(rot);
     map = Map;
     height = width = 10;
+    
+    hit_rad = 10;
 }
 
 void Bullet::Update(Engine* game)

@@ -1,4 +1,4 @@
-//
+ //
 //  Entity.hpp
 //  Splatter
 //
@@ -17,6 +17,10 @@ public:
     float  x, y;
     float vx, vy;
     
+    float hit_rad;
+    
+    bool show_hitbox = false;
+    
     virtual void Init(Engine* game) = 0;
     
     virtual void Update(Engine* game) = 0;
@@ -24,9 +28,20 @@ public:
     virtual void Draw(Engine* game) = 0 ;
     
     void HandleEvents(Engine* game, SDL_Event event);
+    
+    bool HasCollided(Entity* e){
+
+        float dist = pow((this->x - e->x), 2) + pow((this->y - e->y), 2);
+        
+        return dist < pow(hit_rad + e->hit_rad, 2 );
+        
+    }
 
 protected:
     Entity(){};
+    
+private:
+    
 };
 
 #endif /* Entity_hpp */
