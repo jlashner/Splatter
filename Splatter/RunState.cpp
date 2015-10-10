@@ -31,10 +31,10 @@ void RunState::Init(Engine *game){
 
     enemies.push_back(Enemy());
     enemies[0].Init(game, 800, 100, &p);
-    enemies.push_back(Enemy());
-    enemies[1].Init(game, 800, map.y + map.h - 40, &p);
-    enemies.push_back(Enemy());
-    enemies[2].Init(game, map.x + 30,  map.y + map.h - 40, &p);
+//    enemies.push_back(Enemy());
+//    enemies[1].Init(game, 800, map.y + map.h - 40, &p);
+//    enemies.push_back(Enemy());
+//    enemies[2].Init(game, map.x + 30,  map.y + map.h - 40, &p);
 
     
   
@@ -93,7 +93,7 @@ void RunState::Update(Engine *game){
             if (bullets[i].HasCollided(&enemies[j])){
                 enemies[j].Destroy();
                 
-                enemies.erase(enemies.begin() + j - 1);
+                enemies.erase(enemies.begin() + j);
                 j--;
                 
                 bullets.erase(bullets.begin() + i);
@@ -132,6 +132,8 @@ void RunState::Draw(Engine *game){
     SDL_RenderDrawRect(game->renderer, &map);
 
     p.Draw(game);
+    
+    
     
     for (int i = 0; i < enemies.size(); i++){
         enemies[i].Draw(game);

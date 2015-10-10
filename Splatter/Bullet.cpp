@@ -59,5 +59,4 @@ void Bullet::Draw(Engine* game)
 }
 
 void Bullet::Destroy(){
-    
 }

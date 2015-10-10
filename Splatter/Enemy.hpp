@@ -48,8 +48,8 @@ public:
     
     Enemy(){};
     
-private:
     LTexture sprite = LTexture();
+
 };
 
 

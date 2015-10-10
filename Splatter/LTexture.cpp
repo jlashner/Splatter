@@ -166,9 +166,13 @@ void LTexture::render(int x, int y, SDL_Renderer* renderer,SDL_Rect* clip, SDL_R
     if (dest != NULL)
         renderQuad = {dest->x, dest->y, dest->w, dest->h};
     
-    if (SDL_RenderCopyEx(renderer, mTexture, clip, &renderQuad,angle,center,flip)==-1 && true)
-        printf("SDL Error: %s\n", SDL_GetError());
-               
+    
+    if(mTexture != NULL){
+        if (SDL_RenderCopyEx(renderer, mTexture, clip, &renderQuad,angle,center,flip)==-1 && true){
+            printf("SDL Error: %s\n", SDL_GetError());}}
+    else{
+        printf("Texture is null\n");
+    }
 }
 
 int LTexture::getWidth(){return mWidth;}
