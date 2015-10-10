@@ -21,7 +21,7 @@ void Enemy::Init(Engine *game, double x, double y, Player* player){
     vy = 0;
     width = 40, height = 40;
     
-    hit_rad = 40;
+    hit_rad = 20;
     
     rot = 0;
     maxvel = 100;

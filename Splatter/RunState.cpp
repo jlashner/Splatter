@@ -32,7 +32,7 @@ void RunState::Init(Engine *game){
     enemies.push_back(Enemy());
     
     for (int i = 0; i < enemies.size(); i ++){
-        enemies[i].Init(game, 200, 200, &p);
+        enemies[i].Init(game, 800, 100, &p);
     }
     
     
