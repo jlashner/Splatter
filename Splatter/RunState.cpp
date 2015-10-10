@@ -56,19 +56,17 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
             case SDLK_SPACE:
                 Bullet bullet;
                 
-                
-                
-                bullet.Init(game, p.x + 30 * cos(p.rot), p.y + 30 * sin(p.rot), p.rot, map);
+                bullet.Init(game, p.x + (p.hit_rad + 10) * cos(p.rot), p.y + (p.hit_rad + 10) * sin(p.rot), p.rot, map);
                 bullets.push_back(bullet);
                 break;
-        }
+            }
             break;
-        case SDL_MOUSEBUTTONDOWN:
-            Bullet bullet;
-        
-            bullet.Init(game, p.x + (p.rad + 20) * cos(p.rot), p.y + (p.rad + 20) * sin(p.rot), p.rot, map);
-            bullets.push_back(bullet);
-            break;
+            case SDL_MOUSEBUTTONDOWN:
+                Bullet bullet;
+            
+                bullet.Init(game, p.x + (p.hit_rad + 10) * cos(p.rot), p.y + (p.hit_rad + 10) * sin(p.rot), p.rot, map);
+                bullets.push_back(bullet);
+                break;
     }
     
     p.HandleEvents(game, event);
