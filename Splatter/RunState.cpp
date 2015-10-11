@@ -6,6 +6,7 @@
 //  Copyright © 2015 WesHack. All rights reserved.
 //
 
+#include <cstdlib>
 #include "RunState.hpp"
 #include "Player.hpp"
 #include "GameOverState.hpp"
@@ -28,14 +29,16 @@ void RunState::Init(Engine *game){
     p.map = map;
     
     vector <Bullet> bullets (50);
+    enemy_tex.loadFromFile("assets/Enemy.png", game->renderer);
     
-    enemyFactory.addEnemy(game, 800, 100, &p);
+    enemyFactory.addEnemy(game, (rand() % (map.w + 1)) + map.x, (rand() % (map.h + 1)) + map.y, &p, &enemy_tex);
+    
+    currentWave = 1;
     
 }
 
 void RunState::Reset(){
     enemyFactory.despawnAll();
-    bullets.clear();
 }
 
 void RunState::Cleanup(){}
@@ -69,16 +72,24 @@ void RunState::HandleEvents(Engine *game, SDL_Event event){
 void RunState::Update(Engine *game){
     p.Update(game);
     
-    enemyFactory.updateEnemies(game);
+    enemyFactory.updateEnemies(game, &p);
+    if (enemyFactory.playerKilled) {
+        
+        GameOverState *gos = GameOverState::Instance();
+        gos->setRunState(this);
+        ChangeState(game, GameOverState::Instance() );
+        
+    }
     
     for (int i = 0; i < bullets.size(); i++){
         bullets[i].Update(game);
-        
             if (enemyFactory.bulletDidHidEnemy(&bullets[i])) {
                 bullets.erase(bullets.begin() + i);
-                i--;
+		i--;
+
+
             }
-//
+	
         if (p.HasCollided(&bullets[i])){
             p.Destroy();
             
@@ -90,6 +101,13 @@ void RunState::Update(Engine *game){
             ChangeState(game, GameOverState::Instance() );
         }
         
+    }
+    
+    if (currentWave < enemyFactory.wave) {
+        currentWave++;
+        for (int i = 0; i < currentWave; i++) {
+            enemyFactory.addEnemy(game, (rand() % (map.w + 1)) + map.x, (rand() % (map.h + 1)) + map.y, &p, &enemy_tex);
+        }
     }
 
 }
@@ -103,12 +121,9 @@ void RunState::Draw(Engine *game){
     SDL_RenderDrawRect(game->renderer, &map);
 
     p.Draw(game);
-    
     enemyFactory.drawEnemies(game);
     
     for (int i = 0; i < bullets.size(); i++) {
         bullets[i].Draw(game);
     }
 }
-
-

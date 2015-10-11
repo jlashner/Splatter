@@ -17,11 +17,13 @@
 
 class EnemyFactory {
 public:
-    void addEnemy(Engine* game, double x, double y, Player* player);
-    void updateEnemies(Engine* game);
+    void addEnemy(Engine* game, double x, double y, Player* player, LTexture* tex);
+    void updateEnemies(Engine* game, Player* p);
     void drawEnemies(Engine* game);
     bool bulletDidHidEnemy(Bullet* bullet);
     void despawnAll();
+    int wave = 1;
+    bool playerKilled = false;
 
 private:
     vector<Enemy> enemies;

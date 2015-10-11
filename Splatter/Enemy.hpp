@@ -35,7 +35,7 @@ public:
     Entity* target;
     
     void Init(Engine* game){}
-    void Init(Engine* game, double x, double y, Player* p);
+    void Init(Engine* game, double x, double y, Player* p, LTexture* tex);
     
     
     void Update(Engine* game);
@@ -48,8 +48,8 @@ public:
     
     Enemy(){};
     
-private:
-    LTexture sprite = LTexture();
+    LTexture* sprite;
+
 };
 
 

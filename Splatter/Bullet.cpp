@@ -25,7 +25,9 @@ void Bullet::Init(Engine* game, float X, float Y, float Rot, SDL_Rect Map)
     map = Map;
     height = width = 10;
     
-    hit_rad = 10;
+    show_hitbox = true;
+    
+    hit_rad = 4;
 }
 
 void Bullet::Update(Engine* game)
@@ -48,11 +50,13 @@ void Bullet::Update(Engine* game)
 void Bullet::Draw(Engine* game)
 {
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 255, 0xFF );
-    SDL_Rect bullet_rect = {(int)x, (int)y, width, height};
+    SDL_Rect bullet_rect = {(int)(x - width/2), (int)(y - height/2), width, height};
     SDL_RenderFillRect(game->renderer, &bullet_rect);
+    
+    if (show_hitbox)
+        DrawHitbox(game);
 
 }
 
 void Bullet::Destroy(){
-    
 }

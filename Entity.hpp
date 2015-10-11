@@ -36,6 +36,14 @@ public:
         return dist < pow(hit_rad + e->hit_rad, 2 );
         
     }
+    
+    void DrawHitbox(Engine* game){
+        
+        SDL_Rect hitbox_rect = {(int) (x - hit_rad), (int)(y - hit_rad), (int)(2*hit_rad), (int)(2* hit_rad)};
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderDrawRect(game->renderer, &hitbox_rect);
+        
+    }
 
 protected:
     Entity(){};

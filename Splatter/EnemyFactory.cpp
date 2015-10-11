@@ -8,15 +8,24 @@
 
 #include "EnemyFactory.hpp"
 
-void EnemyFactory::addEnemy(Engine* game, double x, double y, Player *player) {
+void EnemyFactory::addEnemy(Engine* game, double x, double y, Player *player, LTexture *tex) {
+    playerKilled = false;
     Enemy newEnemy;
-    newEnemy.Init(game, x, y, player);
+    newEnemy.Init(game, x, y, player, tex);
     enemies.push_back(newEnemy);
 }
 
-void EnemyFactory::updateEnemies(Engine *game) {
+void EnemyFactory::updateEnemies(Engine *game, Player* p) {
     for (int i = 0; i < enemies.size(); i++){
         enemies[i].Update(game);
+        if (p->HasCollided(&enemies[i])){
+            p->Destroy();
+            
+            enemies.erase(enemies.begin() + i);
+            i--;
+            
+            playerKilled = true;
+        }
     }
 }
 
@@ -32,6 +41,9 @@ bool EnemyFactory::bulletDidHidEnemy(Bullet *bullet) {
             enemies[i].Destroy();
             enemies.erase(enemies.begin() + i);
             i--;
+            if (enemies.size() == 0) {
+                wave++;
+            }
             return true;
         }
     }

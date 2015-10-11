@@ -11,7 +11,7 @@
 
 void Enemy::HandleEvents(Engine *game, SDL_Event event){}
 
-void Enemy::Init(Engine *game, double x, double y, Player* player){
+void Enemy::Init(Engine *game, double x, double y, Player* player, LTexture* tex){
     this->x = x;
     this->y = y;
     
@@ -21,13 +21,18 @@ void Enemy::Init(Engine *game, double x, double y, Player* player){
     vy = 0;
     width = 40, height = 40;
     
-    hit_rad = 20;
+    hit_rad = 10;
+    
+    show_hitbox = true;
+    
+    is_dead = false;
     
     rot = 0;
     maxvel = 100;
     ai = Chase;
     
-    sprite.loadFromFile("assets/Enemy.png", game->renderer);
+    sprite = tex;
+    
 
 }
 
@@ -64,13 +69,16 @@ void Enemy::Update(Engine* game){
 
 void Enemy::Destroy(){
     is_dead = true;
+    
 }
 
 void Enemy::Draw(Engine *game){
     SDL_Rect sprite_rect = {(int)x - width/2,(int)y - height/2,width,height};
     if (!is_dead)
-        sprite.render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, &sprite_rect, rot* 180 /  M_PI);
+        sprite->render((int)(x -width/2),(int)(y - height/2), game->renderer, NULL, &sprite_rect, rot* 180 /  M_PI);
 
+    if (show_hitbox)
+        DrawHitbox(game);
 
     
     
