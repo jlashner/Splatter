@@ -106,7 +106,15 @@ void RunState::Update(Engine *game){
     if (currentWave < enemyFactory.wave) {
         currentWave++;
         for (int i = 0; i < currentWave; i++) {
-            enemyFactory.addEnemy(game, (rand() % (map.w + 1)) + map.x, (rand() % (map.h + 1)) + map.y, &p, &enemy_tex);
+            int newX = (rand() % (map.w + 1)) + map.x;
+            int newY = (rand() % (map.h + 1)) + map.y;
+            if (((int) p.x) < (newX + 40) && ((int) p.x) > (newX - 40)) {
+                newX = (rand() % (map.w + 1)) + map.x;
+            }
+            if (((int) p.y) < (newY + 40) && ((int) p.y) > (newY - 40)) {
+                newY = (rand() % (map.h + 1)) + map.y;
+            }
+            enemyFactory.addEnemy(game, newX, newY, &p, &enemy_tex);
         }
     }
 
