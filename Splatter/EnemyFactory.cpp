@@ -52,4 +52,5 @@ bool EnemyFactory::bulletDidHidEnemy(Bullet *bullet) {
 
 void EnemyFactory::despawnAll() {
     enemies.clear();
+    wave = 1;
 }

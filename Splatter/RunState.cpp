@@ -41,6 +41,8 @@ void RunState::Init(Engine *game){
 
 void RunState::Reset(){
     enemyFactory.despawnAll();
+    bullets.clear();
+    currentWave = 1;
 }
 
 void RunState::Cleanup(){}
