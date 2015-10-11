@@ -16,6 +16,7 @@
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "Bullet.hpp"
+#include "LTexture.h"
 
 using namespace std;
 
@@ -51,6 +52,7 @@ private:
     vector<Bullet> bullets;
     vector<Enemy> enemies;
     
+    LTexture enemy_tex = LTexture();
 };
 
 

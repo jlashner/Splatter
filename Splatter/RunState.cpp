@@ -29,12 +29,15 @@ void RunState::Init(Engine *game){
     
     vector <Bullet> bullets (50);
 
+    
+    enemy_tex.loadFromFile("assets/Enemy.png", game->renderer);
+    
     enemies.push_back(Enemy());
-    enemies[0].Init(game, 800, 100, &p);
+    enemies[0].Init(game, 800, 100, &p, &enemy_tex);
 //    enemies.push_back(Enemy());
-//    enemies[1].Init(game, 800, map.y + map.h - 40, &p);
+//    enemies[1].Init(game, 800, map.y + map.h - 40, &p, &enemy_tex);
 //    enemies.push_back(Enemy());
-//    enemies[2].Init(game, map.x + 30,  map.y + map.h - 40, &p);
+//    enemies[2].Init(game, map.x + 30,  map.y + map.h - 40, &p, &enemy_tex);
 
     
     
@@ -43,7 +46,11 @@ void RunState::Init(Engine *game){
 }
 
 void RunState::Reset(){
+    for(int i = 0; i <enemies.size();i++)
+        enemies[i].Destroy();
+
     enemies.clear();
+    
     bullets.clear();
 }
 
@@ -95,15 +102,14 @@ void RunState::Update(Engine *game){
                 
                 enemies.erase(enemies.begin() + j);
                 j--;
+                printf("size of enemies: %d", enemies.size());
                 
                 bullets.erase(bullets.begin() + i);
-                i--;
+//                i--;
                 
                 enemies.push_back(Enemy());
-                
-                for (int i = 0; i < enemies.size(); i ++){
-                    enemies[i].Init(game, 800, 100, &p);
-                }
+                enemies.back().Init(game, 800, 100, &p, &enemy_tex);
+
 
             }
         }
@@ -133,9 +139,7 @@ void RunState::Draw(Engine *game){
 
     p.Draw(game);
     
-    
-    
-    for (int i = 0; i < enemies.size(); i++){
+        for (int i = 0; i < enemies.size(); i++){
         enemies[i].Draw(game);
     }
     
