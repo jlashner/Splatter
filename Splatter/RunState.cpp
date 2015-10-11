@@ -17,6 +17,8 @@ RunState RunState::m_RunState;
 void RunState::Init(Engine *game){
     this->game = game;
     
+    srand(time(NULL));
+    
     map.w = game->getWidth()*.8;
     map.h = game->getHeight()* .8;
     map.x = game->getWidth()/2 - map.w/2;

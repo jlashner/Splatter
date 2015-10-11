@@ -33,6 +33,8 @@ public:
     
     void Destroy();
     
+private:
+    bool wDown = false, aDown = false, sDown = false, dDown = false;
 
 };
 

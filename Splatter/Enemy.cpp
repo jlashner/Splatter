@@ -23,7 +23,7 @@ void Enemy::Init(Engine *game, double x, double y, Player* player, LTexture* tex
     
     hit_rad = 10;
     
-    show_hitbox = true;
+    show_hitbox = false;
     
     is_dead = false;
     

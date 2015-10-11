@@ -62,6 +62,22 @@ void Player::Update(Engine* game) {
     
     rot = atan2f(opp, adj);
     
+    if (wDown) {
+        vy = -maxvel;
+    } else if (sDown) {
+        vy = maxvel;
+    } else {
+        vy = 0;
+    }
+    
+    if (dDown) {
+        vx = maxvel;
+    } else if (aDown) {
+        vx = -maxvel;
+    } else {
+        vx = 0;
+    }
+    
 }
 
 void Player::Draw(Engine *game) {
@@ -84,32 +100,32 @@ void Player::HandleEvents(Engine *game, SDL_Event event){
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym) {
                 case SDLK_w:
-                    vy = -maxvel;
+                    wDown = true;
                     break;
                 case SDLK_s:
-                    vy = maxvel;
+                    sDown = true;
                     break;
                 case SDLK_a:
-                    vx = -maxvel;
+                    aDown = true;
                     break;
                 case SDLK_d:
-                    vx = maxvel;
+                    dDown = true;
                     break;
             }
             break;
         case SDL_KEYUP:
             switch (event.key.keysym.sym) {
                 case SDLK_w:
-                    if (vy < 0) vy = 0;
+                    wDown = false;
                     break;
                 case SDLK_d:
-                    if (vx > 0) vx = 0;
+                    dDown = false;
                     break;
                 case SDLK_a:
-                    if (vx < 0) vx = 0;
+                    aDown = false;
                     break;
                 case SDLK_s:
-                    if (vy > 0) vy = 0;
+                    sDown = false;
                     break;
             }
             break;
